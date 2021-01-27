@@ -1,0 +1,11 @@
+--class-path src
+--main Main
+--library hxnodejs
+--library jsasync
+--js bin/ali-upload.js
+
+--next
+
+--main NekoRun
+--neko run.n
+--class-path src
