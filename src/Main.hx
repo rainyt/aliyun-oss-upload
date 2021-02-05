@@ -46,7 +46,8 @@ class Main {
 	}
 
 	public static function startUpload(oss:OSS):Void {
-		trace("检索目录...");
+		Sys.setCwd(Sys.args()[Sys.args().length - 1]);
+		trace("检索目录..." + Sys.getCwd());
 		readDir(targetDir);
 		trace("总文件数量：" + allfile.length + "个，开始上传...");
 		var tcount = 30;
