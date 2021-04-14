@@ -68,7 +68,7 @@ class Main {
 	 * 上传完成
 	 */
 	public static function onSuccess():Void {
-		trace("上传完成，远程地址：https://static.kdyx.cn/" + aliyunTargetDir);
+		trace("上传完成：" + aliyunTargetDir);
 		var date = DateTools.format(Date.fromTime(Date.now().getTime() - startTime), "%M:%S");
 		trace("总耗时：" + date + "秒");
 	}
