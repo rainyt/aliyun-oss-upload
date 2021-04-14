@@ -32,7 +32,7 @@ class Main {
 	 */
 	public static var startTime:Float = Date.now().getTime();
 
-	@:jsasync static function main() {
+	static function main() {
 		targetDir = Sys.args()[0];
 		aliyunTargetDir = Sys.args()[1];
 		if (aliyunTargetDir.indexOf(":") == -1) {

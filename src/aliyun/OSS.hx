@@ -8,7 +8,7 @@ import js.lib.Promise;
 @:jsRequire('ali-oss')
 extern class OSS {
     
-    public function new(data:{bucket:String,region:String,accessKeyId:String,accessKeySecret:String});
+    public function new(data:{bucket:String,region:String,accessKeyId:String,accessKeySecret:String,timeout:Float});
 
     /**
      * 上传文件

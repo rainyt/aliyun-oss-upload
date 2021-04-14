@@ -18,7 +18,8 @@ haxelib install *.zip
     "bucket": "Bucket名称",
     "region": "oss-cn-hangzhou",
     "accessKeyId": "用户accessKeyId",
-    "accessKeySecret": "用户accessKeySecret"
+    "accessKeySecret": "用户accessKeySecret",
+    "timeout": 300000
 }
 ```
 相关参数请参考阿里云文档。
