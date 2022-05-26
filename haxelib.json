@@ -4,7 +4,7 @@
     "license": "MIT",
     "tags": ["adjuz","build","openfl"],
     "description": "阿里云上传服务实现",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "releasenote": "",
     "contributors": ["rainy"],
     "classPath": "src",

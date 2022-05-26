@@ -32,14 +32,23 @@ class Main {
 	 */
 	public static var startTime:Float = Date.now().getTime();
 
+	/**
+	 * 文件过滤器
+	 */
+	public static var filter:Array<String>;
+
 	static function main() {
 		targetDir = Sys.args()[0];
 		aliyunTargetDir = Sys.args()[1];
+		if (Sys.args()[3] != null) {
+			filter = Sys.args().slice(2);
+			filter.pop();
+		}
 		if (aliyunTargetDir.indexOf(":") == -1) {
 			throw "无效格式，请使用[文件夹:版本号]的格式";
 		}
 		aliyunTargetDir = StringTools.replace(aliyunTargetDir, ":", "/");
-		trace("OSS启动");
+		trace("OSS启动，阿里云目标：" + aliyunTargetDir);
 		var oss = new OSS(Json.parse(sys.io.File.getContent(StringTools.replace(Sys.programPath(), "ali-upload.js", "../oss.json"))));
 		// 判断一下阿里云是否存在当前目录
 		startUpload(oss);
@@ -126,7 +135,15 @@ class Main {
 			if (sys.FileSystem.isDirectory(path)) {
 				readDir(path);
 			} else {
-				allfile.push(StringTools.replace(path, targetDir + "/", ""));
+				if (filter != null) {
+					for (s in filter) {
+						if (path.indexOf(s) != -1) {
+							allfile.push(StringTools.replace(path, targetDir + "/", ""));
+							break;
+						}
+					}
+				} else
+					allfile.push(StringTools.replace(path, targetDir + "/", ""));
 			}
 		}
 	}
